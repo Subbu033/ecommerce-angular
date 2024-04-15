@@ -1,0 +1,18 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-toolbar-single-row{
+    background-color: #fff;
+  }
+  .menu ul{
+    display: flex;
+  }
+  .menu ul li{
+    display: flex;
+    margin-right: 25px;
+  }
+  .menu ul li a{
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+  }

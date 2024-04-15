@@ -1,0 +1,16 @@
+<header>
+    <mat-toolbar>
+        <a href="javascript:void(0);" routerLink="products">{{appName}}</a>
+        <nav class="menu">
+          <ul>
+            <li><a href="javascript:void(0);" routerLink="products">Products</a></li>
+            <li><a href="javascript:void(0);" routerLink="orders">My Orders</a></li>
+          </ul>
+        </nav>
+        <span class="example-spacer"></span>
+        <button routerLink="cart" mat-icon-button class="example-icon favorite-icon" aria-label="Cart Items">
+          <mat-icon [matBadge]="cartCount" matBadgeColor="warn" aria-hidden="false">shopping_cart</mat-icon>
+        </button>
+      </mat-toolbar>
+</header>
+

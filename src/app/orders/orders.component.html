@@ -1,0 +1,20 @@
+<h1 class="cart-items-title">My Orders</h1> 
+<div class="cart-items-container">
+    <mat-card class="cart-items" *ngFor="let item of orderedItems">
+        <img mat-card-md-image [src]="item.thumbnail"  [alt]="item.title">
+        <div class="cart-items-right">
+            <mat-card-header>
+                <mat-card-title-group>
+                <mat-card-title>{{item.title}}</mat-card-title>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content> 
+                <p>{{item.content}}</p>
+                <br>
+                <p>Quantity: <b>{{item.qty}}</b></p>
+                <br>
+                <p>Ordered on: <b>{{item.orderedDate | date:'medium'}}</b></p>
+            </mat-card-content>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,38 @@
+<ng-container *ngIf="cartCount > 0;else no_items_in_cart">
+<h1 class="cart-items-title">{{cartCount}} Item(s) in your cart!!</h1> 
+<div class="cart-items-container">
+    <mat-card class="cart-items" *ngFor="let item of cartItems">
+        <img mat-card-md-image [src]="item.thumbnail"  [alt]="item.title">
+        <div class="cart-items-right">
+            <mat-card-header>
+                <mat-card-title-group>
+                <mat-card-title>{{item.title}}</mat-card-title>
+                <mat-card-subtitle>
+                    
+                </mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content> 
+                <p>{{item.content}}</p>
+                <mat-form-field>
+                    <mat-label>Quantity:</mat-label>
+                    <input matInput type="number" [(ngModel)]="item.qty" min="1" (change)="updateQty()">
+                </mat-form-field>
+                <button mat-mini-fab color="primary" aria-label="Remove the item from cart" (click)="removeItem(item.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-content>
+            <button mat-raised-button color="secondary" (click)="buyNow(item.id)">Buy Now</button>
+        </div>
+    </mat-card>
+</div>
+</ng-container>
+<ng-template #no_items_in_cart>
+    <div class="no-items-container">
+        <div class="no-items-content">
+            <mat-icon aria-label="Cart Items">shopping_cart</mat-icon>
+            <h1 class="cart-items-title">You don't have any item added in your cart.</h1> 
+            <a href="javascript:void(0);" routerLink="/products" mat-raised-button color="primary">Continue Shopping</a>    
+        </div>
+    </div>
+</ng-template>

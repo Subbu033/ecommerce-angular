@@ -1,0 +1,18 @@
+.cart-items-title{
+    text-align: center;
+    margin:20px 0;
+}
+.cart-items-container{
+    padding: 20px;
+}
+.cart-items{
+    display: flex;
+    margin: 0;
+    padding: 20px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: center;
+}
+.cart-items img{
+    height: auto;
+}

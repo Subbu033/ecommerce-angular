@@ -15,7 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
 import { CartComponent } from './cart/cart.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -52,7 +52,8 @@ import {MatMenuModule} from '@angular/material/menu';
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    DataService
+    provideHttpClient(withFetch()),
+    DataService,
   ],
   bootstrap: [AppComponent]
 })

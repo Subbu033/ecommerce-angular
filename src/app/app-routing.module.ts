@@ -4,6 +4,8 @@ import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
   {path:'products', component:ProductsListComponent},
@@ -11,6 +13,12 @@ const routes: Routes = [
   {path:'orders', component:OrdersComponent},
   {
     path:'products/details/:id', component: ProductDetailsComponent
+  },
+  {
+    path:'shippingDetails/:id', component: ShippingDetailsComponent
+  },
+  {
+    path:'orderConfirmation', component: OrderConfirmationComponent
   },
 ];
 

@@ -7,7 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ProductsListComponent } from './products-list/products-list.component';
 import { HeaderComponent } from './header/header.component';
 import { DataService } from './data.service';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
 // Material components
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -23,6 +24,8 @@ import { OrdersComponent } from './orders/orders.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoadingComponent } from './loading/loading.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import {MatMenuModule} from '@angular/material/menu';
     ProductDetailsComponent,
     OrdersComponent,
     LoadingComponent,
+    ShippingDetailsComponent,
+    OrderConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +49,12 @@ import {MatMenuModule} from '@angular/material/menu';
     MatCardModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
     MatMenuModule,
+    MatSelectModule,
   ],
   providers: [
     provideClientHydration(),

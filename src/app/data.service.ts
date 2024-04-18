@@ -14,7 +14,7 @@ export class DataService {
   clickedProduct:any;
   products:any;
   orderedItems:any[] = [];
-
+  itemToOrder:any[] = [];
   private cartCountUpdate = new Subject();
   public cartCountUpdateObs$ = this.cartCountUpdate.asObservable();
 
@@ -64,14 +64,19 @@ export class DataService {
     this.openSnackBar(this.cartUpdatedMessage);
     
   }
-  buyNow = (productId:any) => {
+  buyNow = (productId:any, shippingDetails:any) => {
     let addedProduct = this.products.find((item:any) => item.id == productId);
     addedProduct.orderedDate = new Date();
     if(!addedProduct.qty){
       addedProduct.qty = 1;
     }
+    addedProduct.shippingDetails = shippingDetails;
     this.orderedItems.push(addedProduct);
     console.log('My orders is:', this.orderedItems)
+  }
+  addItemToOrder = (productId:any) => {
+    this.itemToOrder = this.products.find((item:any) => item.id == productId);
+    console.log('Item to order:', this.itemToOrder)
   }
   openSnackBar(message:string) {
     this._snackBar.open(message, 'Close', 

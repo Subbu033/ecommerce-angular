@@ -38,6 +38,7 @@ export class ProductsListComponent implements OnInit {
   // cartItems:any[] = [];
   // cartCount:number = 0;
   posts:any;
+  productToOrder:any;
   constructor(private dataService: DataService){
     this.dataService.getData().subscribe(data=>{
       this.dataService.products = data;
@@ -56,8 +57,8 @@ export class ProductsListComponent implements OnInit {
   adToCart = (productId:any) => {
     this.dataService.adToCart(productId);
   }
-  buyNow = (productId:any) => {
-    this.dataService.buyNow(productId)
+  addItemToOrder = (productId:any) => {
+    this.dataService.addItemToOrder(productId);
   }
 }
 // interface productItems {

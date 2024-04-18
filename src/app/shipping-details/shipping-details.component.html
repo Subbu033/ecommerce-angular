@@ -1,0 +1,40 @@
+<div class="shipping-details-conatiner" (submit)="onSubmit(productId)">
+    <h1>Add Shipping Details {{productId}}</h1>
+    <form [formGroup]="shippingDetails">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput name="name" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile No</mat-label>
+            <input type="tel" matInput name="mobile" formControlName="mobile" required>
+        </mat-form-field>
+        <div formGroupName="address">
+            <mat-form-field appearance="outline">
+                <mat-label>Apartment/ Door No</mat-label>
+                <input matInput name="doornumber" formControlName="doornumber">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput name="address1" formControlName="address1" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput name="address2" formControlName="address2">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address type</mat-label>
+                <mat-select name="addresstype" formControlName="addresstype">
+                    <mat-option value="Home">Home</mat-option>
+                    <mat-option value="Office">Office</mat-option>
+                    <mat-option value="Others">Others</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Pincode</mat-label>
+                <input type="text" matInput name="pincode" formControlName="pincode" required>
+            </mat-form-field>
+        </div>
+        <button type="submit" mat-flat-button color="primary" [disabled]="!shippingDetails.valid">Save & Continue</button>
+    </form>
+</div>

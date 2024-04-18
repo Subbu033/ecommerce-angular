@@ -12,7 +12,8 @@
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="primary" (click)="adToCart(product.id)">Add to Cart</button>
-                <button mat-raised-button color="secondary" (click)="buyNow(product.id)">Buy Now</button>
+                <button mat-raised-button color="secondary" [routerLink]="'/shippingDetails/'+ product.id" (click)="addItemToOrder(product.id)">Buy Now</button>
+                
             </mat-card-actions>
         </mat-card>
     </ng-container>

@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { from, take } from 'rxjs';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -40,9 +41,14 @@ export class ProductsListComponent implements OnInit {
   posts:any;
   productToOrder:any;
   constructor(private dataService: DataService){
-    this.dataService.getData().subscribe(data=>{
-      this.dataService.products = data;
+    if(this.posts){console.log('Posts if', this.posts)}
+    this.dataService.getData().subscribe((data:any)=>{
+      let filteredPosts = from(data).pipe(take(10));
+      filteredPosts.subscribe((filteredData:any) => {
+        this.dataService.products.push(filteredData);
+      })
       this.posts = this.dataService.products;
+      console.log('Posts', this.posts)
     });
    
   }

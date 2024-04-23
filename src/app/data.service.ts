@@ -12,7 +12,7 @@ export class DataService {
   prevCartCount:number = 0;
   cartUpdatedMessage:string = '';
   clickedProduct:any;
-  products:any;
+  products:any[] = [];
   orderedItems:any[] = [];
   itemToOrder:any[] = [];
   private cartCountUpdate = new Subject();

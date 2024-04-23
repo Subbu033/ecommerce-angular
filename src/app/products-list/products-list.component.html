@@ -1,6 +1,6 @@
 <div class="product-list-block" *ngIf="posts; else loading">
-    <ng-container *ngFor="let product of posts; let i = index">
-        <mat-card class="product-list-card" *ngIf="i<8">
+    <ng-container *ngFor="let product of posts;">
+        <mat-card class="product-list-card">
             <img mat-card-image [src]="product.thumbnail" [alt]="product.title" />
             <mat-card-header>
                 <mat-card-title>

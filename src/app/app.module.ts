@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ProductsListComponent } from './products-list/products-list.component';
 import { HeaderComponent } from './header/header.component';
 import { DataService } from './data.service';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
 // Material components

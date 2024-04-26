@@ -6,6 +6,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { AuthGuard } from './routing.guards';
+
 
 const routes: Routes = [
   {path:'products', component:ProductsListComponent},
@@ -18,7 +20,17 @@ const routes: Routes = [
     path:'shippingDetails/:id', component: ShippingDetailsComponent
   },
   {
-    path:'orderConfirmation', component: OrderConfirmationComponent
+    path:'orderConfirmation', component: OrderConfirmationComponent,
+   
+   children : [
+    {
+      path:'success', component: OrderConfirmationComponent,
+      canActivate: [AuthGuard],
+    },
+    {
+      path:'failed', component: OrderConfirmationComponent,
+    },
+   ]
   },
 ];
 

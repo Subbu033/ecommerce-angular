@@ -1,1 +1,22 @@
-<p>order-confirmation works!</p>
+
+
+
+
+<ng-container *ngIf="orderStatus=='success' else orderFailed">
+    <div class="no-items-container">
+        <div class="no-items-content">
+            <mat-icon aria-label="Cart Items" class="c_green no-items-icon">check_circle</mat-icon>
+            <h1 class="cart-items-title">The order has been successfully placed!</h1> 
+            <a href="javascript:void(0);" routerLink="/orders" mat-raised-button color="primary">View Orders</a>    
+        </div>
+    </div>
+</ng-container>
+<ng-template #orderFailed>
+    <div class="no-items-container">
+        <div class="no-items-content">
+            <mat-icon aria-label="Cart Items" class="c_red no-items-icon">error</mat-icon>
+            <h1 class="cart-items-title">Something went wrong. Please try after some time.</h1> 
+            <a href="javascript:void(0);" routerLink="/products" mat-raised-button color="primary">Continue Shopping</a>    
+        </div>
+    </div>
+</ng-template>

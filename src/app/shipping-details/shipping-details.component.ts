@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-shipping-details',
   templateUrl: './shipping-details.component.html',
@@ -28,9 +29,9 @@ export class ShippingDetailsComponent {
   onSubmit = (productId:any) => {
     console.log(this.shippingDetails.value);
     this.dataService.buyNow(productId, this.shippingDetails.value);
-    //this.dataService.buyNow();
     console.log(this.dataService.itemToOrder);
-    this.router.navigateByUrl('/orderConfirmation');
+    this.router.navigateByUrl('/orderConfirmation/success');
 
   }
 }
+

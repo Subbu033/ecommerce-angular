@@ -7,7 +7,11 @@ import { DataService } from '../data.service';
 })
 export class OrdersComponent {
   orderedItems:any;
-  constructor(private dataServie: DataService){
-    this.orderedItems = dataServie.orderedItems;
+  orderedDate: Date;
+  shippingDetails: any;
+  constructor(private dataService: DataService){
+    this.orderedItems = dataService.orderedItems.items;
+    this.orderedDate = dataService.orderedItems.orderedDate;
+    this.shippingDetails = dataService.orderedItems.shippingDetails;
   }
 }

@@ -75,6 +75,8 @@ export class DataService {
       this.orderedItems.items[0].qty = 1;
     }
     this.orderedItems.shippingDetails = shippingDetails;
+    this.cartItems = [];
+    this.calculateCartCount();
     console.log('My orders is:', this.orderedItems)
   }
   addItemToOrder = (productId:any) => {

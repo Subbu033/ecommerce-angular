@@ -13,10 +13,10 @@
                 <br>
                 <p>Quantity: <b>{{item.qty}}</b></p>
                 <br>
-                <p>Ordered on: <b>{{item.orderedDate | date:'medium'}}</b></p>
+                <p>Ordered on: <b>{{orderedDate | date:'medium'}}</b></p>
                 <p>Deliver to: 
-                    <b>{{item.shippingDetails.address.address1}}</b>
-                    <b>{{item.shippingDetails.address.pincode}}</b>
+                    <b>{{shippingDetails.address.address1}}</b>
+                    <b>{{shippingDetails.address.pincode}}</b>
                 </p>
             </mat-card-content>
         </div>

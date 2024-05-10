@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthGuard } from '../routing.guards';
 @Component({
   selector: 'app-shipping-details',
   templateUrl: './shipping-details.component.html',
@@ -26,12 +27,10 @@ export class ShippingDetailsComponent {
     this.itemToOrder = this.dataService.itemToOrder;
     this.productId = this.route.snapshot.params['id'];
   }
-  onSubmit = (productId:any) => {
-    console.log(this.shippingDetails.value);
-    this.dataService.buyNow(productId, this.shippingDetails.value);
+  onSubmit = () => {
+    this.dataService.buyNow(this.itemToOrder, this.shippingDetails.value);
     console.log(this.dataService.itemToOrder);
     this.router.navigateByUrl('/orderConfirmation/success');
-
   }
 }
 

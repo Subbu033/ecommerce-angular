@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree, Router, CanActivateChildFn } from '@angular/router';
 import { Observable } from 'rxjs';
 
 export const AuthGuard: CanActivateFn = ( 
@@ -16,6 +16,7 @@ export const AuthGuard: CanActivateFn = (
     : inject(Router).createUrlTree(['/orderConfirmation', 'failed']);
   
   };
+
 
   
   

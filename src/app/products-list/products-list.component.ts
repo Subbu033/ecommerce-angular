@@ -48,7 +48,6 @@ export class ProductsListComponent implements OnInit {
         this.dataService.products.push(filteredData);
       })
       this.posts = this.dataService.products;
-      console.log('Posts', this.posts)
     });
    
   }

@@ -1,6 +1,7 @@
 <ng-container *ngIf="cartCount > 0;else no_items_in_cart">
 <h1 class="cart-items-title">{{cartCount}} Item(s) in your cart!!</h1> 
 <div class="cart-items-container">
+    <button mat-raised-button color="primary" routerLink="/shippingDetails/cartCheckout" (click)="addCartItemsToOrder(cartItems)">Place Order</button>
     <mat-card class="cart-items" *ngFor="let item of cartItems">
         <img mat-card-md-image [src]="item.thumbnail"  [alt]="item.title">
         <div class="cart-items-right">
@@ -22,9 +23,10 @@
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-card-content>
-            <button mat-raised-button color="secondary">Buy Now</button>
+            
         </div>
     </mat-card>
+    <button mat-raised-button color="primary" routerLink="/shippingDetails/cartCheckout" (click)="addCartItemsToOrder(cartItems)">Place Order</button>
 </div>
 </ng-container>
 <ng-template #no_items_in_cart>

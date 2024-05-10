@@ -20,17 +20,20 @@ const routes: Routes = [
     path:'shippingDetails/:id', component: ShippingDetailsComponent
   },
   {
+    path:'shippingDetails/cartCheckout', component: ShippingDetailsComponent
+  },
+  {
     path:'orderConfirmation', component: OrderConfirmationComponent,
-   
+    //canActivateChild: [AuthGuardChild], *** NOT WORKING. CHECK LATER ***
    children : [
-    {
-      path:'success', component: OrderConfirmationComponent,
-      canActivate: [AuthGuard],
-    },
-    {
-      path:'failed', component: OrderConfirmationComponent,
-    },
-   ]
+      {
+        path:'success', component: OrderConfirmationComponent,
+        canActivate: [AuthGuard], 
+      },
+      {
+        path:'failed', component: OrderConfirmationComponent,
+      },
+    ]
   },
 ];
 

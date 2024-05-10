@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
     this.dataService.openSnackBar(this.dataService.cartUpdatedMessage);
     console.log('updated item:', this.dataService.cartItems);
   }
-  // buyNow = (productId:any) => {
-  //   this.dataService.buyNow(productId)
-  // }
+  addCartItemsToOrder = (items:any) => {
+    this.dataService.addCartItemsToOrder(items);
+  }
 }

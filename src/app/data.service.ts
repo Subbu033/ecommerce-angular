@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -13,7 +13,11 @@ export class DataService {
   cartUpdatedMessage:string = '';
   clickedProduct:any;
   products:any[] = [];
-  orderedItems:any[] = [];
+  orderedItems:OrderItems = {
+    items: [],
+    orderedDate: Date(), 
+    shippingDetails: ''
+  };
   itemToOrder:any[] = [];
   private cartCountUpdate = new Subject();
   public cartCountUpdateObs$ = this.cartCountUpdate.asObservable();
@@ -64,19 +68,20 @@ export class DataService {
     this.openSnackBar(this.cartUpdatedMessage);
     
   }
-  buyNow = (productId:any, shippingDetails:any) => {
-    let addedProduct = this.products.find((item:any) => item.id == productId);
-    addedProduct.orderedDate = new Date();
-    if(!addedProduct.qty){
-      addedProduct.qty = 1;
+  buyNow = (products:any, shippingDetails:any) => {
+    this.orderedItems.orderedDate = new Date();
+    this.orderedItems.items = [...products];
+    if(this.orderedItems.items.length == 1){
+      this.orderedItems.items[0].qty = 1;
     }
-    addedProduct.shippingDetails = shippingDetails;
-    this.orderedItems.push(addedProduct);
+    this.orderedItems.shippingDetails = shippingDetails;
     console.log('My orders is:', this.orderedItems)
   }
   addItemToOrder = (productId:any) => {
-    this.itemToOrder = this.products.find((item:any) => item.id == productId);
-    console.log('Item to order:', this.itemToOrder)
+    this.itemToOrder.push(this.products.find((item:any) => item.id == productId));
+  }
+  addCartItemsToOrder = (items:any) => {
+    this.itemToOrder = [...items];
   }
   openSnackBar(message:string) {
     this._snackBar.open(message, 'Close', 
@@ -87,3 +92,8 @@ export class DataService {
     
   }
 }
+interface OrderItems {
+    items:Array<any>;
+    orderedDate:any;
+    shippingDetails:any;
+  }

@@ -17,7 +17,7 @@ export class ProductDetailsComponent {
   adToCart = (productId:any) => {
     this.dataService.adToCart(productId);
   }
-  // buyNow = (productId:any) => {
-  //   this.dataService.buyNow(productId)
-  // }
+  addItemToOrder = (productId:any) => {
+    this.dataService.addItemToOrder(productId);
+  }
 }
